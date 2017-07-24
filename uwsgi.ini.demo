@@ -1,0 +1,16 @@
+[uwsgi]
+chdir           = /Users/lupt/GIT/www/dytt
+daemonize       = /usr/local/var/log/uwsgi/app/dytt.log
+module          = config.wsgi:application
+# the virtualenv (full path)
+virtualenv      = /Users/lupt/.virtualenvs/dytt
+master          = true
+processes       = 2
+socket          = 127.0.0.1:12303
+vacuum          = true
+plugins = python
+max-requests=5000
+logformat = %(host)[%(addr)] "%(proto) %(status) %(method) %[[0;32m%(uri)%[[0m" %[[0;31m%(msecs)%[[0mms
+
+post-buffering=1
+buffer-size=65535
