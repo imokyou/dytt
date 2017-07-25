@@ -11,7 +11,9 @@ class Router(object):
             return 'dsp_data'
         elif model.__name__ in ('User', ):
             return 'default'
-        return None
+        else:
+            return 'default'
+        return 'None'
 
     def db_for_write(self, model, **hints):
         """
@@ -20,6 +22,8 @@ class Router(object):
         if model._meta.app_label == 'data':
             return 'dsp_data'
         elif model.__name__ in ('User', ):
+            return 'default'
+        else:
             return 'default'
         return None
 
